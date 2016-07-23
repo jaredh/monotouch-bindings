@@ -3,7 +3,7 @@
     <Assembly Name="Parse" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("Parse.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="MobileCoreServices CoreGraphics SystemConfiguration AudioToolbox Security")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("Parse", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="MobileCoreServices CoreGraphics SystemConfiguration AudioToolbox Security StoreKit AssetsLibrary CFNetwork CoreLocation QuartzCore", LinkerFlags="-lsqlite3 -lz", WeakFrameworks="Social Accounts")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -15,22 +15,388 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="Parse">
+    </Namespace>
+    <Namespace Name="ParseLib">
       <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="ParseTouch">
+      <Type Name="IParse_EGORefreshTableHeaderDelegate" Kind="Interface" />
+      <Type Name="IParseFBDialogDelegate" Kind="Interface" />
+      <Type Name="IParseFBLoginDialogDelegate" Kind="Interface" />
+      <Type Name="IParseFBRequestDelegate" Kind="Interface" />
+      <Type Name="IParseFBSessionDelegate" Kind="Interface" />
+      <Type Name="IParseLogInViewControllerDelegate" Kind="Interface" />
+      <Type Name="IParseMBProgressHUDDelegate" Kind="Interface" />
+      <Type Name="IParseRefreshTableHeaderView" Kind="Interface" />
+      <Type Name="IParseSignUpViewControllerDelegate" Kind="Interface" />
       <Type Name="Parse" Kind="Class" />
-      <Type Name="PF_Facebook" Kind="Class" />
-      <Type Name="PF_FBDialog" Kind="Class" />
-      <Type Name="PF_FBDialogDelegate" Kind="Class" />
-      <Type Name="PF_FBRequest" Kind="Class" />
-      <Type Name="PF_FBRequestDelegate" Kind="Class" />
-      <Type Name="PF_FBSessionDelegate" Kind="Class" />
-      <Type Name="PFACL" Kind="Class" />
-      <Type Name="PFFile" Kind="Class" />
-      <Type Name="PFObject" Kind="Class" />
-      <Type Name="PFPointer" Kind="Class" />
-      <Type Name="PFPush" Kind="Class" />
-      <Type Name="PFQuery" Kind="Class" />
-      <Type Name="PFUser" Kind="Class" />
+      <Type Name="Parse_EGORefreshTableHeaderDelegate" Kind="Class" />
+      <Type Name="Parse_EGORefreshTableHeaderDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseACL" Kind="Class" />
+      <Type Name="ParseAnonymousUtils" Kind="Class" />
+      <Type Name="ParseArrayResult" Kind="Delegate" />
+      <Type Name="ParseBooleanResult" Kind="Delegate" />
+      <Type Name="ParseCachePolicy" Kind="Enumeration" />
+      <Type Name="ParseDataResult" Kind="Delegate" />
+      <Type Name="ParseDataStreamResult" Kind="Delegate" />
+      <Type Name="ParseErrorResult" Kind="Delegate" />
+      <Type Name="ParseFacebook" Kind="Class" />
+      <Type Name="ParseFacebookUtils" Kind="Class" />
+      <Type Name="ParseFBDialog" Kind="Class" />
+      <Type Name="ParseFBDialogDelegate" Kind="Class" />
+      <Type Name="ParseFBDialogDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseFBDialogErrorEventArgs" Kind="Class" />
+      <Type Name="ParseFBDialogUrl" Kind="Delegate" />
+      <Type Name="ParseFBFrictionlessRequestSettings" Kind="Class" />
+      <Type Name="ParseFBLoginDialog" Kind="Class" />
+      <Type Name="ParseFBLoginDialogDelegate" Kind="Class" />
+      <Type Name="ParseFBLoginDialogDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseFBRequest" Kind="Class" />
+      <Type Name="ParseFBRequestDataEventArgs" Kind="Class" />
+      <Type Name="ParseFBRequestDelegate" Kind="Class" />
+      <Type Name="ParseFBRequestDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseFBRequestErrorEventArgs" Kind="Class" />
+      <Type Name="ParseFBRequestObjEventArgs" Kind="Class" />
+      <Type Name="ParseFBRequestRespEventArgs" Kind="Class" />
+      <Type Name="ParseFBRequestState" Kind="Enumeration" />
+      <Type Name="ParseFBSessionDelegate" Kind="Class" />
+      <Type Name="ParseFBSessionDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseFile" Kind="Class" />
+      <Type Name="ParseGeoPoint" Kind="Class" />
+      <Type Name="ParseImageResult" Kind="Delegate" />
+      <Type Name="ParseImageView" Kind="Class" />
+      <Type Name="ParseInstallation" Kind="Class" />
+      <Type Name="ParseIntegerResult" Kind="Delegate" />
+      <Type Name="ParseLogInFields" Kind="Enumeration" />
+      <Type Name="ParseLogInView" Kind="Class" />
+      <Type Name="ParseLogInViewController" Kind="Class" />
+      <Type Name="ParseLogInViewControllerDelegate" Kind="Class" />
+      <Type Name="ParseLogInViewControllerDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseMBProgressHUD" Kind="Class" />
+      <Type Name="ParseMBProgressHUDAnimation" Kind="Enumeration" />
+      <Type Name="ParseMBProgressHUDDelegate" Kind="Class" />
+      <Type Name="ParseMBProgressHUDDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseMBProgressHUDMode" Kind="Enumeration" />
+      <Type Name="ParseMBRoundProgressView" Kind="Class" />
+      <Type Name="ParseObject" Kind="Class" />
+      <Type Name="ParseObjectResult" Kind="Delegate" />
+      <Type Name="ParseProgress" Kind="Delegate" />
+      <Type Name="ParsePush" Kind="Class" />
+      <Type Name="ParseQuery" Kind="Class" />
+      <Type Name="ParseQueryTableViewController" Kind="Class" />
+      <Type Name="ParseRefreshTableHeaderView" Kind="Class" />
+      <Type Name="ParseRefreshTableHeaderView_Extensions" Kind="Class" />
+      <Type Name="ParseRelation" Kind="Class" />
+      <Type Name="ParseRole" Kind="Class" />
+      <Type Name="ParseSetResult" Kind="Delegate" />
+      <Type Name="ParseSignUpFields" Kind="Enumeration" />
+      <Type Name="ParseSignUpView" Kind="Class" />
+      <Type Name="ParseSignUpViewController" Kind="Class" />
+      <Type Name="ParseSignUpViewControllerDelegate" Kind="Class" />
+      <Type Name="ParseSignUpViewControllerDelegate_Extensions" Kind="Class" />
+      <Type Name="ParseTableViewCell" Kind="Class" />
+      <Type Name="ParseTwitter" Kind="Class" />
+      <Type Name="ParseTwitterUtils" Kind="Class" />
+      <Type Name="ParseUser" Kind="Class" />
+      <Type Name="ParseUserResult" Kind="Delegate" />
+      <Type Name="PF_EGORefreshTableHeaderView" Kind="Class" />
+      <Type Name="PF_VCDict" Kind="Delegate" />
+      <Type Name="PF_VCErrorEventArgs" Kind="Class" />
+      <Type Name="PF_VCUserEventArgs" Kind="Class" />
+      <Type Name="PFDidLoginEventArgs" Kind="Class" />
+      <Type Name="PFFailedLoginEventArgs" Kind="Class" />
+      <Type Name="PFShouldLogin" Kind="Delegate" />
     </Namespace>
   </Types>
   <Title>Parse</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseLogInViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="CanceledLogin">
+        <MemberSignature Language="C#" Value="public static void CanceledLogin (this ParseTouch.IParseLogInViewControllerDelegate This, ParseTouch.ParseLogInViewController logInController);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CanceledLogin(class ParseTouch.IParseLogInViewControllerDelegate This, class ParseTouch.ParseLogInViewController logInController) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseLogInViewControllerDelegate" RefType="this" />
+          <Parameter Name="logInController" Type="ParseTouch.ParseLogInViewController" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="logInController">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseLogInViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseLogInViewControllerDelegate_Extensions.CanceledLogin(ParseTouch.IParseLogInViewControllerDelegate,ParseTouch.ParseLogInViewController)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseLogInViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="FailedLogin">
+        <MemberSignature Language="C#" Value="public static void FailedLogin (this ParseTouch.IParseLogInViewControllerDelegate This, ParseTouch.ParseLogInViewController logInController, MonoTouch.Foundation.NSError error);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void FailedLogin(class ParseTouch.IParseLogInViewControllerDelegate This, class ParseTouch.ParseLogInViewController logInController, class MonoTouch.Foundation.NSError error) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseLogInViewControllerDelegate" RefType="this" />
+          <Parameter Name="logInController" Type="ParseTouch.ParseLogInViewController" />
+          <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="logInController">To be added.</param>
+          <param name="error">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseLogInViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseLogInViewControllerDelegate_Extensions.FailedLogin(ParseTouch.IParseLogInViewControllerDelegate,ParseTouch.ParseLogInViewController,MonoTouch.Foundation.NSError)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseLogInViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="ShouldBeginLogIn">
+        <MemberSignature Language="C#" Value="public static bool ShouldBeginLogIn (this ParseTouch.IParseLogInViewControllerDelegate This, ParseTouch.ParseLogInViewController logInController, string username, string password);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldBeginLogIn(class ParseTouch.IParseLogInViewControllerDelegate This, class ParseTouch.ParseLogInViewController logInController, string username, string password) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseLogInViewControllerDelegate" RefType="this" />
+          <Parameter Name="logInController" Type="ParseTouch.ParseLogInViewController" />
+          <Parameter Name="username" Type="System.String" />
+          <Parameter Name="password" Type="System.String" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="logInController">To be added.</param>
+          <param name="username">To be added.</param>
+          <param name="password">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseLogInViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseLogInViewControllerDelegate_Extensions.ShouldBeginLogIn(ParseTouch.IParseLogInViewControllerDelegate,ParseTouch.ParseLogInViewController,System.String,System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseLogInViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="SuccededLogin">
+        <MemberSignature Language="C#" Value="public static void SuccededLogin (this ParseTouch.IParseLogInViewControllerDelegate This, ParseTouch.ParseLogInViewController logInController, ParseTouch.ParseUser user);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SuccededLogin(class ParseTouch.IParseLogInViewControllerDelegate This, class ParseTouch.ParseLogInViewController logInController, class ParseTouch.ParseUser user) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseLogInViewControllerDelegate" RefType="this" />
+          <Parameter Name="logInController" Type="ParseTouch.ParseLogInViewController" />
+          <Parameter Name="user" Type="ParseTouch.ParseUser" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="logInController">To be added.</param>
+          <param name="user">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseLogInViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseLogInViewControllerDelegate_Extensions.SuccededLogin(ParseTouch.IParseLogInViewControllerDelegate,ParseTouch.ParseLogInViewController,ParseTouch.ParseUser)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseRefreshTableHeaderView" />
+      </Targets>
+      <Member MemberName="DataSourceDidFinishedLoading">
+        <MemberSignature Language="C#" Value="public static void DataSourceDidFinishedLoading (this ParseTouch.IParseRefreshTableHeaderView This, MonoTouch.UIKit.UIScrollView scrollView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DataSourceDidFinishedLoading(class ParseTouch.IParseRefreshTableHeaderView This, class MonoTouch.UIKit.UIScrollView scrollView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseRefreshTableHeaderView" RefType="this" />
+          <Parameter Name="scrollView" Type="MonoTouch.UIKit.UIScrollView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="scrollView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseRefreshTableHeaderView_Extensions" Member="M:ParseTouch.ParseRefreshTableHeaderView_Extensions.DataSourceDidFinishedLoading(ParseTouch.IParseRefreshTableHeaderView,MonoTouch.UIKit.UIScrollView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseRefreshTableHeaderView" />
+      </Targets>
+      <Member MemberName="DidEndDragging">
+        <MemberSignature Language="C#" Value="public static void DidEndDragging (this ParseTouch.IParseRefreshTableHeaderView This, MonoTouch.UIKit.UIScrollView scrollView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidEndDragging(class ParseTouch.IParseRefreshTableHeaderView This, class MonoTouch.UIKit.UIScrollView scrollView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseRefreshTableHeaderView" RefType="this" />
+          <Parameter Name="scrollView" Type="MonoTouch.UIKit.UIScrollView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="scrollView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseRefreshTableHeaderView_Extensions" Member="M:ParseTouch.ParseRefreshTableHeaderView_Extensions.DidEndDragging(ParseTouch.IParseRefreshTableHeaderView,MonoTouch.UIKit.UIScrollView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseRefreshTableHeaderView" />
+      </Targets>
+      <Member MemberName="DidScroll">
+        <MemberSignature Language="C#" Value="public static void DidScroll (this ParseTouch.IParseRefreshTableHeaderView This, MonoTouch.UIKit.UIScrollView scrollView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidScroll(class ParseTouch.IParseRefreshTableHeaderView This, class MonoTouch.UIKit.UIScrollView scrollView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseRefreshTableHeaderView" RefType="this" />
+          <Parameter Name="scrollView" Type="MonoTouch.UIKit.UIScrollView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="scrollView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseRefreshTableHeaderView_Extensions" Member="M:ParseTouch.ParseRefreshTableHeaderView_Extensions.DidScroll(ParseTouch.IParseRefreshTableHeaderView,MonoTouch.UIKit.UIScrollView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseRefreshTableHeaderView" />
+      </Targets>
+      <Member MemberName="RefreshLastUpdatedDate">
+        <MemberSignature Language="C#" Value="public static void RefreshLastUpdatedDate (this ParseTouch.IParseRefreshTableHeaderView This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RefreshLastUpdatedDate(class ParseTouch.IParseRefreshTableHeaderView This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseRefreshTableHeaderView" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseRefreshTableHeaderView_Extensions" Member="M:ParseTouch.ParseRefreshTableHeaderView_Extensions.RefreshLastUpdatedDate(ParseTouch.IParseRefreshTableHeaderView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseSignUpViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="BeginSignUp">
+        <MemberSignature Language="C#" Value="public static bool BeginSignUp (this ParseTouch.IParseSignUpViewControllerDelegate This, ParseTouch.ParseSignUpViewController signUpController, MonoTouch.Foundation.NSDictionary info);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool BeginSignUp(class ParseTouch.IParseSignUpViewControllerDelegate This, class ParseTouch.ParseSignUpViewController signUpController, class MonoTouch.Foundation.NSDictionary info) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseSignUpViewControllerDelegate" RefType="this" />
+          <Parameter Name="signUpController" Type="ParseTouch.ParseSignUpViewController" />
+          <Parameter Name="info" Type="MonoTouch.Foundation.NSDictionary" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="signUpController">To be added.</param>
+          <param name="info">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseSignUpViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseSignUpViewControllerDelegate_Extensions.BeginSignUp(ParseTouch.IParseSignUpViewControllerDelegate,ParseTouch.ParseSignUpViewController,MonoTouch.Foundation.NSDictionary)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseSignUpViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="CanceledLogin">
+        <MemberSignature Language="C#" Value="public static void CanceledLogin (this ParseTouch.IParseSignUpViewControllerDelegate This, ParseTouch.ParseSignUpViewController signUpController);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CanceledLogin(class ParseTouch.IParseSignUpViewControllerDelegate This, class ParseTouch.ParseSignUpViewController signUpController) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseSignUpViewControllerDelegate" RefType="this" />
+          <Parameter Name="signUpController" Type="ParseTouch.ParseSignUpViewController" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="signUpController">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseSignUpViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseSignUpViewControllerDelegate_Extensions.CanceledLogin(ParseTouch.IParseSignUpViewControllerDelegate,ParseTouch.ParseSignUpViewController)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseSignUpViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="FailedLogin">
+        <MemberSignature Language="C#" Value="public static void FailedLogin (this ParseTouch.IParseSignUpViewControllerDelegate This, ParseTouch.ParseSignUpViewController signUpController, MonoTouch.Foundation.NSError error);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void FailedLogin(class ParseTouch.IParseSignUpViewControllerDelegate This, class ParseTouch.ParseSignUpViewController signUpController, class MonoTouch.Foundation.NSError error) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseSignUpViewControllerDelegate" RefType="this" />
+          <Parameter Name="signUpController" Type="ParseTouch.ParseSignUpViewController" />
+          <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="signUpController">To be added.</param>
+          <param name="error">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseSignUpViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseSignUpViewControllerDelegate_Extensions.FailedLogin(ParseTouch.IParseSignUpViewControllerDelegate,ParseTouch.ParseSignUpViewController,MonoTouch.Foundation.NSError)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:ParseTouch.IParseSignUpViewControllerDelegate" />
+      </Targets>
+      <Member MemberName="SuccededLogin">
+        <MemberSignature Language="C#" Value="public static void SuccededLogin (this ParseTouch.IParseSignUpViewControllerDelegate This, ParseTouch.ParseSignUpViewController signUpController, ParseTouch.ParseUser user);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SuccededLogin(class ParseTouch.IParseSignUpViewControllerDelegate This, class ParseTouch.ParseSignUpViewController signUpController, class ParseTouch.ParseUser user) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="ParseTouch.IParseSignUpViewControllerDelegate" RefType="this" />
+          <Parameter Name="signUpController" Type="ParseTouch.ParseSignUpViewController" />
+          <Parameter Name="user" Type="ParseTouch.ParseUser" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="signUpController">To be added.</param>
+          <param name="user">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="ParseTouch.ParseSignUpViewControllerDelegate_Extensions" Member="M:ParseTouch.ParseSignUpViewControllerDelegate_Extensions.SuccededLogin(ParseTouch.IParseSignUpViewControllerDelegate,ParseTouch.ParseSignUpViewController,ParseTouch.ParseUser)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>
