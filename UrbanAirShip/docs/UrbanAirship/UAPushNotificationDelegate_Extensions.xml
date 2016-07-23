@@ -1,0 +1,146 @@
+<Type Name="UAPushNotificationDelegate_Extensions" FullName="UrbanAirship.UAPushNotificationDelegate_Extensions">
+  <TypeSignature Language="C#" Value="public static class UAPushNotificationDelegate_Extensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit UAPushNotificationDelegate_Extensions extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>UrbanAirship</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="DisplayLocalizedNotificationAlert">
+      <MemberSignature Language="C#" Value="public static void DisplayLocalizedNotificationAlert (this UrbanAirship.IUAPushNotificationDelegate This, MonoTouch.Foundation.NSDictionary alertDict);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DisplayLocalizedNotificationAlert(class UrbanAirship.IUAPushNotificationDelegate This, class MonoTouch.Foundation.NSDictionary alertDict) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="UrbanAirship.IUAPushNotificationDelegate" RefType="this" />
+        <Parameter Name="alertDict" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="alertDict">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DisplayNotificationAlert">
+      <MemberSignature Language="C#" Value="public static void DisplayNotificationAlert (this UrbanAirship.IUAPushNotificationDelegate This, string alertMessage);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DisplayNotificationAlert(class UrbanAirship.IUAPushNotificationDelegate This, string alertMessage) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="UrbanAirship.IUAPushNotificationDelegate" RefType="this" />
+        <Parameter Name="alertMessage" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="alertMessage">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleBackgroundNotification">
+      <MemberSignature Language="C#" Value="public static void HandleBackgroundNotification (this UrbanAirship.IUAPushNotificationDelegate This, MonoTouch.Foundation.NSDictionary notification);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void HandleBackgroundNotification(class UrbanAirship.IUAPushNotificationDelegate This, class MonoTouch.Foundation.NSDictionary notification) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="UrbanAirship.IUAPushNotificationDelegate" RefType="this" />
+        <Parameter Name="notification" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="notification">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleBadgeUpdate">
+      <MemberSignature Language="C#" Value="public static void HandleBadgeUpdate (this UrbanAirship.IUAPushNotificationDelegate This, int badgeNumber);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void HandleBadgeUpdate(class UrbanAirship.IUAPushNotificationDelegate This, int32 badgeNumber) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="UrbanAirship.IUAPushNotificationDelegate" RefType="this" />
+        <Parameter Name="badgeNumber" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="badgeNumber">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleNotificationWithCustomPayload">
+      <MemberSignature Language="C#" Value="public static void HandleNotificationWithCustomPayload (this UrbanAirship.IUAPushNotificationDelegate This, MonoTouch.Foundation.NSDictionary notification, MonoTouch.Foundation.NSDictionary customPayload);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void HandleNotificationWithCustomPayload(class UrbanAirship.IUAPushNotificationDelegate This, class MonoTouch.Foundation.NSDictionary notification, class MonoTouch.Foundation.NSDictionary customPayload) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="UrbanAirship.IUAPushNotificationDelegate" RefType="this" />
+        <Parameter Name="notification" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="customPayload" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="notification">To be added.</param>
+        <param name="customPayload">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlayNotificationSound">
+      <MemberSignature Language="C#" Value="public static void PlayNotificationSound (this UrbanAirship.IUAPushNotificationDelegate This, string sound);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PlayNotificationSound(class UrbanAirship.IUAPushNotificationDelegate This, string sound) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="UrbanAirship.IUAPushNotificationDelegate" RefType="this" />
+        <Parameter Name="sound" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="sound">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

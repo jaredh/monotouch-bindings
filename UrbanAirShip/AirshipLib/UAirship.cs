@@ -1,34 +1,4 @@
 
-	[BaseType (typeof (NSObject))]
-	[Model]
-	[Protocol]
-	interface UARegistrationObserver {
-		[Export ("registerDeviceTokenSucceeded")]
-		void RegisterDeviceTokenSucceeded ();
-
-		[Export ("registerDeviceTokenFailed:")]
-		void RegisterDeviceTokenFailed (UA_ASIHTTPRequest request);
-
-		[Export ("unRegisterDeviceTokenSucceeded")]
-		void UnRegisterDeviceTokenSucceeded ();
-
-		[Export ("unRegisterDeviceTokenFailed:")]
-		void UnRegisterDeviceTokenFailed (UA_ASIHTTPRequest request);
-
-		[Export ("addTagToDeviceSucceeded")]
-		void AddTagToDeviceSucceeded ();
-
-		[Export ("addTagToDeviceFailed:")]
-		void AddTagToDeviceFailed (UA_ASIHTTPRequest request);
-
-		[Export ("removeTagFromDeviceSucceeded")]
-		void RemoveTagFromDeviceSucceeded ();
-
-		[Export ("removeTagFromDeviceFailed:")]
-		void RemoveTagFromDeviceFailed (UA_ASIHTTPRequest request);
-
-	}
-
 	[BaseType (typeof (UAObservable))]
 	interface UAirship {
 		[Export ("deviceToken")]
@@ -68,8 +38,8 @@
 		[Export ("shared")]
 		UAirship Shared ();
 
-		[Export ("registerDeviceToken:")]
-		void RegisterDeviceToken (NSData token);
+		[Export ("appRegisteredForRemoteNotificationsWithDeviceToken:")]
+		void AppRegisteredForRemoteNotificationsWithDeviceToken (NSData token);
 
 		[Export ("registerDeviceTokenWithExtraInfo:")]
 		void RegisterDeviceToken (NSDictionary info);

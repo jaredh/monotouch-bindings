@@ -21,6 +21,17 @@ namespace UrbanAirship
      */
 		Offline = 3
 	}
+
+	public enum UALogLevel
+	{
+		Undefined = -1,
+		None = 0,
+		Error = 1,
+		Warn = 2,
+		Info = 3,
+		Debug = 4,
+		Trace = 5
+	}
 	
 	public enum UATagType
 	{

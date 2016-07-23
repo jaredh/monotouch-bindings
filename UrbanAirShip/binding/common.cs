@@ -38,7 +38,7 @@ namespace UrbanAirship
 
 		[Static]
 		[Export ("takeOff:")]
-		void TakeOff (NSDictionary options);
+		void TakeOff (UAConfig config);
 
 		[Static]
 		[Export ("land")]
@@ -48,8 +48,7 @@ namespace UrbanAirship
 		[Export ("shared")]
 		UAirship Shared { get; }
 
-		[Export ("registerDeviceToken:")]
-		void RegisterDeviceToken (NSData token);
+
 
 //		[Export ("registerDeviceTokenWithExtraInfo:")]
 //		void RegisterDeviceToken (NSDictionary info);
@@ -65,25 +64,72 @@ namespace UrbanAirship
 
 	}
 
-	[Static]
-	interface UAirshipTakeOffOptions
-	{
-		[Static, Field ("UAirshipTakeOffOptionsAirshipConfigKey", "__Internal")]
-		NSString AirshipConfigKey { get; }
-		
-		[Static, Field ("UAirshipTakeOffOptionsLaunchOptionsKey", "__Internal")]
-		NSString LaunchOptionsKey { get; }
-		
-		[Static, Field ("UAirshipTakeOffOptionsAnalyticsKey", "__Internal")]
-		NSString AnalyticsKey { get; }
-		
-		[Static, Field ("UAirshipTakeOffOptionsDefaultUsernameKey", "__Internal")]
-		NSString DefaultUsernameKey { get; }
-		
-		[Static, Field ("UAirshipTakeOffOptionsDefaultPasswordKey", "__Internal")]
-		NSString DefaultPasswordKey { get; }
+	[BaseType (typeof (NSObject))]
+	interface UAConfig {
+		[Export ("appKey")]
+		string AppKey { get; set; }
+
+		[Export ("appSecret")]
+		string AppSecret { get; set; }
+
+		[Export ("logLevel")]
+		UALogLevel LogLevel { get; set; }
+
+		[Export ("inProduction")]
+		bool InProduction { get; set; }
+
+		[Export ("analyticsEnabled")]
+		bool AnalyticsEnabled { get; set; }
+
+		[Export ("developmentAppKey")]
+		string DevelopmentAppKey { get; set; }
+
+		[Export ("developmentAppSecret")]
+		string DevelopmentAppSecret { get; set; }
+
+		[Export ("productionAppKey")]
+		string ProductionAppKey { get; set; }
+
+		[Export ("productionAppSecret")]
+		string ProductionAppSecret { get; set; }
+
+		[Export ("developmentLogLevel")]
+		string DevelopmentLogLevel { get; set; }
+
+		[Export ("productionLogLevel")]
+		string ProductionLogLevel { get; set; }
+
+		[Export ("cacheDiskSizeInMB")]
+		int CacheDiskSizeInMB { get; set; }
+
+		[Export ("automaticSetupEnabled")]
+		bool AutomaticSetupEnabled { get; set; }
+
+		[Export ("detectProvisioningMode")]
+		bool DetectProvisioningMode { get; set; }
+
+		[Export ("clearKeychain")]
+		bool ClearKeychain { get; set; }
+
+		[Export ("deviceAPIURL")]
+		string DeviceAPIURL { get; set; }
+
+		[Export ("analyticsURL")]
+		string AnalyticsURL { get; set; }
+
+		[Static]
+		[Export ("defaultConfig")]
+		UAConfig DefaultConfig ();
+
+		[Static]
+		[Export ("configWithContentsOfFile")]
+		UAConfig ConfigWithContentsOfFile (string path);
+
+		[Static]
+		[Export ("config")]
+		UAConfig Config ();
 	}
-	
+
 	[BaseType (typeof (NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(UAPushNotificationDelegate)})]
 	interface UAPush {
 		[Export ("useCustomUI")]
@@ -94,6 +140,9 @@ namespace UrbanAirship
 		
 		[Export ("closeApnsSettingsAnimated:")]
 		void CloseApnsSettings(bool animated);
+
+		[Export ("channelID")]
+		string ChannelID { get; }
 		
 		[Export ("land")]
 		void Land();
@@ -102,20 +151,23 @@ namespace UrbanAirship
 		[Export ("shared")]
 		UAPush Shared { get; }
 		
-		[Export ("registerForRemoteNotificationTypes:")]
-		void RegisterForRemoteNotificationTypes (UIRemoteNotificationType types);
-
-		[Export ("registerDeviceToken:")]
-		void RegisterDeviceToken (NSData token);
-		
 		[Export ("updateRegistration")]
 		void UpdateRegistration();
+
+		[Export ("currentEnabledNotificationTypes")]
+		UIUserNotificationType CurrentEnabledNotificationTypes { get; }
 		
-		[Export ("addTagToCurrentDevice:")]
-		void AddTagToCurrentDevice(string tag);
+		[Export ("addTag:")]
+		void AddTag(string tag);
 		
-		[Export ("removeTagFromCurrentDevice:")]
-		void RemoveTagFromCurrentDevice(string tag);
+		[Export ("addTags:")]
+		void AddTags(string[] tags);
+
+		[Export ("removeTag:")]
+		void RemoveTag(string tag);
+
+		[Export ("removeTags:")]
+		void RemoveTags(string[] tags); 
 		
 		[Export ("updateAlias:")]
 		void UpdateAlias (string value);
@@ -123,8 +175,23 @@ namespace UrbanAirship
 		[Export ("updateTags:")]
 		void UpdateTags(string[] value);
 		
-		[Export ("setQuietTimeFrom:to:withTimeZone:")]
-		void SetQuietTime(NSDate from, NSDate to, NSTimeZone tz);
+		[Export ("userNotificationTypes")]
+		UIUserNotificationType UserNotificationTypes { get; set; }
+
+		[Export ("userPushNotificationsEnabled")]
+		bool UserPushNotificationsEnabled { get; }
+
+		[Export ("userPushNotificationsEnabledByDefault")]
+		bool UserPushNotificationsEnabledByDefault { get; set; }
+
+		[Export ("backgroundPushNotificationsEnabled")]
+		bool BackgroundPushNotificationsEnabled { get; }
+
+		[Export ("backgroundPushNotificationsEnabledByDefault")]
+		bool BackgroundPushNotificationsEnabledByDefault { get; set; }
+
+		[Export ("setQuietTimeStartHour:startMinute:endHour:endMinute:")]
+		void SetQuietTime(NSDate startHour, NSDate startMinute, NSDate endHour, NSDate endMinute);
 		
 		[Export ("disableQuietTime")]
 		void DisableQuietTime();
@@ -205,7 +272,7 @@ namespace UrbanAirship
 		double OldestEventTime { get; }
 
 		[Export ("lastSendTime")]
-		DateTime LastSendTime { get; }
+		NSDate LastSendTime { get; }
 
 		[Export ("initWithOptions:")]
 		IntPtr Constructor (NSDictionary options);
@@ -232,174 +299,9 @@ namespace UrbanAirship
 		UAHTTPConnectionDelegate WeakDelegate { get; set; }
 	}
 	
-	[BaseType (typeof(UIImageView))]
-	interface UAAsyncImageView
-	{
-		[Export ("onReady")]
-		Selector OnReady { get; set; }
 
-		[Export ("target")]
-		NSObject Target { get; set; }
 
-		[Export ("loadImageFromURL:")]
-		void LoadImageL (NSUrl url);
-	}
-	
-	[BaseType (typeof(UISegmentedControl))]
-	interface UABarButtonSegmentedControl
-	{
-	}
-	
-	[BaseType (typeof(NSObject))]
-	interface UAContentURLCache
-	{
-		[Export ("contentDictionary")]
-		NSMutableDictionary ContentDictionary { get; set; }
 
-		[Export ("timestampDictionary")]
-		NSMutableDictionary TimestampDictionary { get; set; }
-
-		[Export ("path")]
-		string Path { get; set; }
-
-		[Export ("expirationInterval")]
-		double ExpirationInterval { get; set; }
-
-		[Static]
-		[Export ("cacheWithExpirationInterval:withPath:")]
-		UAContentURLCache CacheWithExpiration (double interval, string pathString);
-
-		[Export ("initWithExpirationInterval:withPath:")]
-		IntPtr Constructor (double interval, string pathString);
-
-		[Export ("setContent:forProductURL:")]
-		void SetContentforProductURL (NSUrl contentURL, NSUrl productURL);
-
-		[Export ("contentForProductURL:")]
-		NSUrl ContentForProductURL (NSUrl productURL);
-
-	}
-	
-	[BaseType (typeof(NSObject))]
-	interface UADateUtils
-	{
-		[Static]
-		[Export ("formattedDateRelativeToNow:")]
-		string FormattedDateRelativeToNow (NSDate date);
-
-	}
-	
-	[BaseType (typeof(NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(UAZipDownloadContentProtocol)})]
-	interface UADownloadContent
-	{
-		[Export ("userInfo")]
-		NSObject UserInfo { get; set; }
-
-		[Export ("clearBeforeDownload")]
-		bool ClearBeforeDownload { get; set; }
-
-		[Export ("username")]
-		string Username { get; set; }
-
-		[Export ("password")]
-		string Password { get; set; }
-
-		[Export ("downloadRequestURL")]
-		NSUrl DownloadRequestURL { get; set; }
-
-		[Export ("downloadFileName")]
-		string DownloadFileName { get; set; }
-
-		[Export ("requestMethod")]
-		string RequestMethod { get; set; }
-
-		[Export ("responseString")]
-		string ResponseString { get; set; }
-
-		[Export ("downloadPath")]
-		string DownloadPath { get; set; }
-
-		[Export ("downloadTmpPath")]
-		string DownloadTmpPath { get; set; }
-
-		[Export ("postData")]
-		NSDictionary PostData { get; set; }
-		
-		[Wrap ("WeakDelegate")]
-		UAZipDownloadContentProtocol WeakDelegate { get; set; }
-
-	}
-
-	[BaseType (typeof(NSObject))]
-	[Model]
-	[Protocol]
-	interface UAZipDownloadContentProtocol
-	{
-		[Export ("decompressDidSucceed:")]
-		void DecompressDidSucceed (UAZipDownloadContent zipDownloadContent);
-
-		[Export ("decompressDidFail:")]
-		void DecompressDidFail (UAZipDownloadContent zipDownloadContent);
-
-	}
-
-	[BaseType (typeof(UADownloadContent))]
-	interface UAZipDownloadContent
-	{
-		[Export ("decompressedContentPath")]
-		string DecompressedContentPath { get; set; }
-
-		[Export ("decompress")]
-		void Decompress ();
-
-	}
-	
-	[BaseType (typeof(NSObject))]
-	[Model]
-	[Protocol]
-	interface UADownloadManagerDelegate
-	{
-		[Export ("requestDidSucceed:")]
-		void Success (UADownloadContent downloadContent);
-
-		[Export ("requestDidFail:")]
-		void Failed (UADownloadContent downloadContent);
-
-		[Export ("downloadQueueProgress:count:"), EventArgs ("UADownloadManagerProgress")]
-		void DownloadProgress (float progress, int count);
-
-	}
-
-	[BaseType (typeof(NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(UADownloadManagerDelegate)})]
-	interface UADownloadManager
-	{
-		[Export ("delegate")]
-		UADownloadManagerDelegate Delegate { get; set; }
-
-		[Export ("download:")]
-		void Download (UADownloadContent content);
-
-		[Export ("downloadingContentCount")]
-		int DownloadingContentCount ();
-
-		[Export ("allDownloadingContents")]
-		UADownloadContent[] AllDownloadingContents ();
-
-		[Export ("cancel:")]
-		void Cancel (UADownloadContent downloadContent);
-
-		[Export ("updateProgressDelegate:")]
-		void UpdateProgressDelegate (UADownloadContent downloadContent);
-
-		[Export ("isDownloading:")]
-		bool IsDownloading (UADownloadContent downloadContent);
-
-		[Export ("endBackground")]
-		void EndBackground ();
-	
-		[Wrap ("WeakDelegate")]
-		UADownloadManagerDelegate WeakDelegate { get; set; }
-	}
 	
 	[BaseType (typeof(NSObject))]
 	interface UAEvent
@@ -435,21 +337,6 @@ namespace UrbanAirship
 
 	}
 
-	[BaseType (typeof(UAEvent))]
-	interface UAEventCustom
-	{
-		[Static]
-		[Export ("eventWithType:")]
-		UAEventCustom FromType (string aType);
-
-		[Export ("initWithType:andContext:")]
-		IntPtr Constructor (string aType, NSDictionary context);
-
-		[Static]
-		[Export ("eventWithType:andContext:")]
-		UAEventCustom FromType (string aType, NSDictionary context);
-
-	}
 
 	[BaseType (typeof(UAEvent))]
 	interface UAEventAppInit
@@ -478,16 +365,6 @@ namespace UrbanAirship
 
 	[BaseType (typeof(UAEvent))]
 	interface UAEventPushReceived
-	{
-	}
-
-	[BaseType (typeof(UAEvent))]
-	interface UAEventAppActive
-	{
-	}
-
-	[BaseType (typeof(UAEvent))]
-	interface UAEventAppInactive
 	{
 	}
 	
@@ -598,60 +475,6 @@ namespace UrbanAirship
 		[Static]
 		[Export ("getEmailAddress:")]
 		string GetEmailAddress (string identifier);
-	}
-	
-	[BaseType (typeof(NSObject))]
-	interface UALocalStorageDirectory
-	{
-		[Export ("storageType")]
-		UALocalStorageType StorageType { get; set; }
-
-		[Export ("subpath")]
-		string Subpath { get; set; }
-
-		[Export ("oldPaths")]
-		NSSet OldPaths { get; set; }
-
-		[Export ("path")]
-		string Path { get; }
-
-		[Static]
-		[Export ("uaDirectory")]
-		UALocalStorageDirectory UaDirectory ();
-
-		[Static]
-		[Export ("localStorageDirectoryWithType:withSubpath:withOldPaths:")]
-		UALocalStorageDirectory LocalStorageDirectory (UALocalStorageType storageType, string nameString, NSSet oldPathsSet);
-
-		[Export ("subDirectoryWithPathComponent:")]
-		string SubDirectoryWithPathComponent (string component);
-
-	}
-	
-	
-	[BaseType (typeof (NSObject))]
-	interface UAObservable {
-		[Export ("notifyObservers:")]
-		void NotifyObservers (Selector selector);
-
-		[Export ("notifyObservers:withObject:")]
-		void NotifyObservers (Selector selector, NSObject arg1);
-
-		[Export ("notifyObservers:withObject:withObject:")]
-		void NotifyObservers (Selector selector, NSObject arg1, NSObject arg2);
-
-		[Export ("addObserver:")]
-		void AddObserver (NSObject observer);
-
-		[Export ("removeObserver:")]
-		void RemoveObserver (NSObject observer);
-
-		[Export ("removeObservers")]
-		void RemoveObservers ();
-
-		[Export ("countObservers")]
-		int CountObservers ();
-
 	}
 	
 	[BaseType (typeof (NSObject))]
