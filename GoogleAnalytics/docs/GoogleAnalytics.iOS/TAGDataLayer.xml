@@ -1,17 +1,17 @@
-<Type Name="GAITrackedViewController" FullName="GoogleAnalytics.iOS.GAITrackedViewController">
-  <TypeSignature Language="C#" Value="public class GAITrackedViewController : MonoTouch.UIKit.UIViewController" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GAITrackedViewController extends MonoTouch.UIKit.UIViewController" />
+<Type Name="TAGDataLayer" FullName="GoogleAnalytics.iOS.TAGDataLayer">
+  <TypeSignature Language="C#" Value="public class TAGDataLayer : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TAGDataLayer extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
     <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>MonoTouch.UIKit.UIViewController</BaseTypeName>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
   </Base>
   <Interfaces />
   <Attributes>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Register("GAITrackedViewController", true)</AttributeName>
+      <AttributeName>MonoTouch.Foundation.Register("TAGDataLayer", true)</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>
@@ -20,7 +20,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController ();" />
+      <MemberSignature Language="C#" Value="public TAGDataLayer ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -41,7 +41,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="C#" Value="public TAGDataLayer (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -65,7 +65,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="C#" Value="public TAGDataLayer (MonoTouch.Foundation.NSObjectFlag t);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -86,7 +86,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public TAGDataLayer (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -122,6 +122,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DataLayer">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary DataLayer { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary DataLayer" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("dataLayer", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Dispose">
       <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
@@ -141,51 +162,78 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ScreenName">
-      <MemberSignature Language="C#" Value="public virtual string ScreenName { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string ScreenName" />
-      <MemberType>Property</MemberType>
+    <Member MemberName="Get">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject Get (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSObject Get(string key) cil managed" />
+      <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("screenName", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setScreenName:", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("get:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
       <Docs>
+        <param name="key">To be added.</param>
         <summary>To be added.</summary>
-        <value>To be added.</value>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Tracker">
-      <MemberSignature Language="C#" Value="public virtual GoogleAnalytics.iOS.IGAITracker Tracker { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAnalytics.iOS.IGAITracker Tracker" />
-      <MemberType>Property</MemberType>
+    <Member MemberName="Push">
+      <MemberSignature Language="C#" Value="public virtual void Push (MonoTouch.Foundation.NSDictionary update);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Push(class MonoTouch.Foundation.NSDictionary update) cil managed" />
+      <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("tracker", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setTracker:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("push:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>GoogleAnalytics.iOS.IGAITracker</ReturnType>
+        <ReturnType>System.Void</ReturnType>
       </ReturnValue>
+      <Parameters>
+        <Parameter Name="update" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
       <Docs>
+        <param name="update">To be added.</param>
         <summary>To be added.</summary>
-        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PushValue">
+      <MemberSignature Language="C#" Value="public virtual void PushValue (MonoTouch.Foundation.NSObject val, string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PushValue(class MonoTouch.Foundation.NSObject val, string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pushValue:forKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="val" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="val">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

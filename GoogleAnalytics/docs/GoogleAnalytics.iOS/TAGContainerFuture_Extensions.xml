@@ -1,0 +1,58 @@
+<Type Name="TAGContainerFuture_Extensions" FullName="GoogleAnalytics.iOS.TAGContainerFuture_Extensions">
+  <TypeSignature Language="C#" Value="public static class TAGContainerFuture_Extensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit TAGContainerFuture_Extensions extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Get">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.TAGContainer Get (this GoogleAnalytics.iOS.ITAGContainerFuture This);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.TAGContainer Get(class GoogleAnalytics.iOS.ITAGContainerFuture This) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerFuture" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsDone">
+      <MemberSignature Language="C#" Value="public static bool IsDone (this GoogleAnalytics.iOS.ITAGContainerFuture This);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsDone(class GoogleAnalytics.iOS.ITAGContainerFuture This) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerFuture" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

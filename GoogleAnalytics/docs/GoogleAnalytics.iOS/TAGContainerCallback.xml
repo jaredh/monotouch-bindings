@@ -1,6 +1,6 @@
-<Type Name="GAILogger" FullName="GoogleAnalytics.iOS.GAILogger">
-  <TypeSignature Language="C#" Value="public abstract class GAILogger : MonoTouch.Foundation.NSObject, GoogleAnalytics.iOS.IGAILogger, IDisposable" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit GAILogger extends MonoTouch.Foundation.NSObject implements class GoogleAnalytics.iOS.IGAILogger, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
+<Type Name="TAGContainerCallback" FullName="GoogleAnalytics.iOS.TAGContainerCallback">
+  <TypeSignature Language="C#" Value="public class TAGContainerCallback : MonoTouch.Foundation.NSObject, GoogleAnalytics.iOS.ITAGContainerCallback, IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TAGContainerCallback extends MonoTouch.Foundation.NSObject implements class GoogleAnalytics.iOS.ITAGContainerCallback, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -10,7 +10,7 @@
   </Base>
   <Interfaces>
     <Interface>
-      <InterfaceName>GoogleAnalytics.iOS.IGAILogger</InterfaceName>
+      <InterfaceName>GoogleAnalytics.iOS.ITAGContainerCallback</InterfaceName>
     </Interface>
     <Interface>
       <InterfaceName>System.IDisposable</InterfaceName>
@@ -24,7 +24,7 @@
       <AttributeName>MonoTouch.Foundation.Protocol</AttributeName>
     </Attribute>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Register("GAILogger", true)</AttributeName>
+      <AttributeName>MonoTouch.Foundation.Register("TAGContainerCallback", true)</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>
@@ -33,7 +33,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger ();" />
+      <MemberSignature Language="C#" Value="public TAGContainerCallback ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -54,7 +54,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="C#" Value="public TAGContainerCallback (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -78,7 +78,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="C#" Value="public TAGContainerCallback (MonoTouch.Foundation.NSObjectFlag t);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -99,7 +99,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public TAGContainerCallback (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -119,122 +119,82 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Error">
-      <MemberSignature Language="C#" Value="public abstract void Error (string message);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Error(string message) cil managed" />
+    <Member MemberName="RefreshBegin">
+      <MemberSignature Language="C#" Value="public virtual void RefreshBegin (GoogleAnalytics.iOS.TAGContainer container, GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RefreshBegin(class GoogleAnalytics.iOS.TAGContainer container, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("error:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("containerRefreshBegin:refreshType:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+        <Parameter Name="refreshType" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshType" />
       </Parameters>
       <Docs>
-        <param name="message">To be added.</param>
+        <param name="container">To be added.</param>
+        <param name="refreshType">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Info">
-      <MemberSignature Language="C#" Value="public abstract void Info (string message);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Info(string message) cil managed" />
+    <Member MemberName="RefreshFailure">
+      <MemberSignature Language="C#" Value="public virtual void RefreshFailure (GoogleAnalytics.iOS.TAGContainer container, GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure failure, GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RefreshFailure(class GoogleAnalytics.iOS.TAGContainer container, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure failure, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("info:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("containerRefreshFailure:failure:refreshType:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+        <Parameter Name="failure" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure" />
+        <Parameter Name="refreshType" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshType" />
       </Parameters>
       <Docs>
-        <param name="message">To be added.</param>
+        <param name="container">To be added.</param>
+        <param name="failure">To be added.</param>
+        <param name="refreshType">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LogLevel">
-      <MemberSignature Language="C#" Value="public abstract GoogleAnalytics.iOS.GAILogLevel LogLevel { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype GoogleAnalytics.iOS.GAILogLevel LogLevel" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("logLevel", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setLogLevel:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>GoogleAnalytics.iOS.GAILogLevel</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Verbose">
-      <MemberSignature Language="C#" Value="public abstract void Verbose (string message);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Verbose(string message) cil managed" />
+    <Member MemberName="RefreshSuccess">
+      <MemberSignature Language="C#" Value="public virtual void RefreshSuccess (GoogleAnalytics.iOS.TAGContainer container, GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RefreshSuccess(class GoogleAnalytics.iOS.TAGContainer container, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("verbose:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("containerRefreshSuccess:refreshType:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+        <Parameter Name="refreshType" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshType" />
       </Parameters>
       <Docs>
-        <param name="message">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Warning">
-      <MemberSignature Language="C#" Value="public abstract void Warning (string message);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Warning(string message) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("warning:")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="message" Type="System.String" />
-      </Parameters>
-      <Docs>
-        <param name="message">To be added.</param>
+        <param name="container">To be added.</param>
+        <param name="refreshType">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

@@ -1,17 +1,17 @@
-<Type Name="GAITrackedViewController" FullName="GoogleAnalytics.iOS.GAITrackedViewController">
-  <TypeSignature Language="C#" Value="public class GAITrackedViewController : MonoTouch.UIKit.UIViewController" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GAITrackedViewController extends MonoTouch.UIKit.UIViewController" />
+<Type Name="TAGContainerOpener" FullName="GoogleAnalytics.iOS.TAGContainerOpener">
+  <TypeSignature Language="C#" Value="public class TAGContainerOpener : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TAGContainerOpener extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
     <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>MonoTouch.UIKit.UIViewController</BaseTypeName>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
   </Base>
   <Interfaces />
   <Attributes>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Register("GAITrackedViewController", true)</AttributeName>
+      <AttributeName>MonoTouch.Foundation.Register("TAGContainerOpener", true)</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>
@@ -20,28 +20,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="C#" Value="public TAGContainerOpener (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -65,7 +44,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="C#" Value="public TAGContainerOpener (MonoTouch.Foundation.NSObjectFlag t);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -86,7 +65,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAITrackedViewController (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public TAGContainerOpener (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -122,70 +101,88 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Dispose">
-      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+    <Member MemberName="DefaultTimeout">
+      <MemberSignature Language="C#" Value="public static double DefaultTimeout { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property float64 DefaultTimeout" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultTimeout")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenContainer">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.ITAGContainerFuture OpenContainer (string containerId, GoogleAnalytics.iOS.TAGManager tagManager, GoogleAnalytics.iOS.TAGOpenType openType, double timeout);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.ITAGContainerFuture OpenContainer(string containerId, class GoogleAnalytics.iOS.TAGManager tagManager, valuetype GoogleAnalytics.iOS.TAGOpenType openType, float64 timeout) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openContainerWithId:tagManager:openType:timeout:")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>GoogleAnalytics.iOS.ITAGContainerFuture</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="disposing" Type="System.Boolean" />
+        <Parameter Name="containerId" Type="System.String" />
+        <Parameter Name="tagManager" Type="GoogleAnalytics.iOS.TAGManager" />
+        <Parameter Name="openType" Type="GoogleAnalytics.iOS.TAGOpenType" />
+        <Parameter Name="timeout" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="disposing">To be added.</param>
+        <param name="containerId">To be added.</param>
+        <param name="tagManager">To be added.</param>
+        <param name="openType">To be added.</param>
+        <param name="timeout">To be added.</param>
         <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ScreenName">
-      <MemberSignature Language="C#" Value="public virtual string ScreenName { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string ScreenName" />
-      <MemberType>Property</MemberType>
+    <Member MemberName="OpenContainer">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.ITAGContainerFuture OpenContainer (string containerId, GoogleAnalytics.iOS.TAGManager tagManager, GoogleAnalytics.iOS.TAGOpenType openType, double timeout, GoogleAnalytics.iOS.ITAGContainerOpenerNotifier notifier);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.ITAGContainerFuture OpenContainer(string containerId, class GoogleAnalytics.iOS.TAGManager tagManager, valuetype GoogleAnalytics.iOS.TAGOpenType openType, float64 timeout, class GoogleAnalytics.iOS.ITAGContainerOpenerNotifier notifier) cil managed" />
+      <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("screenName", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setScreenName:", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("openContainerWithId:tagManager:openType:timeout:notifier:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>GoogleAnalytics.iOS.ITAGContainerFuture</ReturnType>
       </ReturnValue>
+      <Parameters>
+        <Parameter Name="containerId" Type="System.String" />
+        <Parameter Name="tagManager" Type="GoogleAnalytics.iOS.TAGManager" />
+        <Parameter Name="openType" Type="GoogleAnalytics.iOS.TAGOpenType" />
+        <Parameter Name="timeout" Type="System.Double" />
+        <Parameter Name="notifier" Type="GoogleAnalytics.iOS.ITAGContainerOpenerNotifier" />
+      </Parameters>
       <Docs>
+        <param name="containerId">To be added.</param>
+        <param name="tagManager">To be added.</param>
+        <param name="openType">To be added.</param>
+        <param name="timeout">To be added.</param>
+        <param name="notifier">To be added.</param>
         <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Tracker">
-      <MemberSignature Language="C#" Value="public virtual GoogleAnalytics.iOS.IGAITracker Tracker { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAnalytics.iOS.IGAITracker Tracker" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("tracker", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setTracker:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>GoogleAnalytics.iOS.IGAITracker</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -1,6 +1,6 @@
-<Type Name="GAILogger" FullName="GoogleAnalytics.iOS.GAILogger">
-  <TypeSignature Language="C#" Value="public abstract class GAILogger : MonoTouch.Foundation.NSObject, GoogleAnalytics.iOS.IGAILogger, IDisposable" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit GAILogger extends MonoTouch.Foundation.NSObject implements class GoogleAnalytics.iOS.IGAILogger, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
+<Type Name="TAGLogger" FullName="GoogleAnalytics.iOS.TAGLogger">
+  <TypeSignature Language="C#" Value="public abstract class TAGLogger : MonoTouch.Foundation.NSObject, GoogleAnalytics.iOS.ITAGLogger, IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit TAGLogger extends MonoTouch.Foundation.NSObject implements class GoogleAnalytics.iOS.ITAGLogger, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -10,7 +10,7 @@
   </Base>
   <Interfaces>
     <Interface>
-      <InterfaceName>GoogleAnalytics.iOS.IGAILogger</InterfaceName>
+      <InterfaceName>GoogleAnalytics.iOS.ITAGLogger</InterfaceName>
     </Interface>
     <Interface>
       <InterfaceName>System.IDisposable</InterfaceName>
@@ -24,7 +24,7 @@
       <AttributeName>MonoTouch.Foundation.Protocol</AttributeName>
     </Attribute>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Register("GAILogger", true)</AttributeName>
+      <AttributeName>MonoTouch.Foundation.Register("TAGLogger", true)</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>
@@ -33,7 +33,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger ();" />
+      <MemberSignature Language="C#" Value="public TAGLogger ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -54,7 +54,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="C#" Value="public TAGLogger (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -78,7 +78,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="C#" Value="public TAGLogger (MonoTouch.Foundation.NSObjectFlag t);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -99,7 +99,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GAILogger (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public TAGLogger (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -115,6 +115,30 @@
       </Parameters>
       <Docs>
         <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Debug">
+      <MemberSignature Language="C#" Value="public abstract void Debug (string message);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Debug(string message) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("debug:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="message">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -168,22 +192,22 @@
       </Docs>
     </Member>
     <Member MemberName="LogLevel">
-      <MemberSignature Language="C#" Value="public abstract GoogleAnalytics.iOS.GAILogLevel LogLevel { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype GoogleAnalytics.iOS.GAILogLevel LogLevel" />
+      <MemberSignature Language="C#" Value="public abstract GoogleAnalytics.iOS.TAGLoggerLogLevelType LogLevel { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype GoogleAnalytics.iOS.TAGLoggerLogLevelType LogLevel" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("logLevel", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("logLevel")</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setLogLevel:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLogLevel:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>GoogleAnalytics.iOS.GAILogLevel</ReturnType>
+        <ReturnType>GoogleAnalytics.iOS.TAGLoggerLogLevelType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

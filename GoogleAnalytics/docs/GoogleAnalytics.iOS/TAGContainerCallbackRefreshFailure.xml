@@ -1,0 +1,101 @@
+<Type Name="TAGContainerCallbackRefreshFailure" FullName="GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure">
+  <TypeSignature Language="C#" Value="public enum TAGContainerCallbackRefreshFailure" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed TAGContainerCallbackRefreshFailure extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="IoError">
+      <MemberSignature Language="C#" Value="IoError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure IoError = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NetworkError">
+      <MemberSignature Language="C#" Value="NetworkError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure NetworkError = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NoNetwork">
+      <MemberSignature Language="C#" Value="NoNetwork" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure NoNetwork = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NoSavedContainer">
+      <MemberSignature Language="C#" Value="NoSavedContainer" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure NoSavedContainer = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="ServerError">
+      <MemberSignature Language="C#" Value="ServerError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure ServerError = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="UnknownError">
+      <MemberSignature Language="C#" Value="UnknownError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure UnknownError = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

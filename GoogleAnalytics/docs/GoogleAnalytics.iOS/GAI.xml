@@ -131,10 +131,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("defaultTracker", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultTracker", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setDefaultTracker:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDefaultTracker:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -176,10 +176,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("dispatchInterval", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("dispatchInterval", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setDispatchInterval:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDispatchInterval:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -219,35 +219,14 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("dryRun", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("dryRun", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setDryRun:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDryRun:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="GAIErrorDomain">
-      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString GAIErrorDomain { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString GAIErrorDomain" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Field("GAIErrorDomain", "__Internal")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -316,10 +295,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("logger", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("logger", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setLogger:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLogger:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -340,35 +319,14 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("optOut", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("optOut", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setOptOut:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setOptOut:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Product">
-      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString Product { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString Product" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Field("GAIProduct", "__Internal")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -430,35 +388,14 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("trackUncaughtExceptions", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("trackUncaughtExceptions", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setTrackUncaughtExceptions:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTrackUncaughtExceptions:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Version">
-      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString Version { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString Version" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Field("GAIVersion", "__Internal")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

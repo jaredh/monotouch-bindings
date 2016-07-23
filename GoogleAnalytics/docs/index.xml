@@ -3,10 +3,13 @@
     <Assembly Name="GoogleAnalytics.iOS" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAnalyticsServices.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreData SystemConfiguration AdSupport", LinkerFlags="-lz -lsqlite3.0 -ObjC -fobjc-arc", SmartLink=true)</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAnalyticsServices.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreData SystemConfiguration", LinkerFlags="-lz -lsqlite3.0 -ObjC -fobjc-arc", SmartLink=true)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAnalyticsExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, SmartLink=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -37,6 +40,33 @@
       <Type Name="GAITracker_Extensions" Kind="Class" />
       <Type Name="IGAILogger" Kind="Interface" />
       <Type Name="IGAITracker" Kind="Interface" />
+      <Type Name="ITAGContainerCallback" Kind="Interface" />
+      <Type Name="ITAGContainerFuture" Kind="Interface" />
+      <Type Name="ITAGContainerOpenerNotifier" Kind="Interface" />
+      <Type Name="ITAGFunctionCallMacroHandler" Kind="Interface" />
+      <Type Name="ITAGFunctionCallTagHandler" Kind="Interface" />
+      <Type Name="ITAGLogger" Kind="Interface" />
+      <Type Name="TAGContainer" Kind="Class" />
+      <Type Name="TAGContainerCallback" Kind="Class" />
+      <Type Name="TAGContainerCallback_Extensions" Kind="Class" />
+      <Type Name="TAGContainerCallbackRefreshFailure" Kind="Enumeration" />
+      <Type Name="TAGContainerCallbackRefreshType" Kind="Enumeration" />
+      <Type Name="TAGContainerFuture" Kind="Class" />
+      <Type Name="TAGContainerFuture_Extensions" Kind="Class" />
+      <Type Name="TAGContainerOpener" Kind="Class" />
+      <Type Name="TAGContainerOpenerNotifier" Kind="Class" />
+      <Type Name="TAGContainerOpenerNotifier_Extensions" Kind="Class" />
+      <Type Name="TAGDataLayer" Kind="Class" />
+      <Type Name="TAGFunctionCallMacroHandler" Kind="Class" />
+      <Type Name="TAGFunctionCallMacroHandler_Extensions" Kind="Class" />
+      <Type Name="TAGFunctionCallTagHandler" Kind="Class" />
+      <Type Name="TAGFunctionCallTagHandler_Extensions" Kind="Class" />
+      <Type Name="TAGLogger" Kind="Class" />
+      <Type Name="TAGLogger_Extensions" Kind="Class" />
+      <Type Name="TAGLoggerLogLevelType" Kind="Enumeration" />
+      <Type Name="TAGManager" Kind="Class" />
+      <Type Name="TAGOpenType" Kind="Enumeration" />
+      <Type Name="TAGRefreshMode" Kind="Enumeration" />
     </Namespace>
   </Types>
   <Title>GoogleAnalytics.iOS</Title>
@@ -131,6 +161,198 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="GoogleAnalytics.iOS.GAITracker_Extensions" Member="M:GoogleAnalytics.iOS.GAITracker_Extensions.Set(GoogleAnalytics.iOS.IGAITracker,System.String,System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGContainerCallback" />
+      </Targets>
+      <Member MemberName="RefreshBegin">
+        <MemberSignature Language="C#" Value="public static void RefreshBegin (this GoogleAnalytics.iOS.ITAGContainerCallback This, GoogleAnalytics.iOS.TAGContainer container, GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RefreshBegin(class GoogleAnalytics.iOS.ITAGContainerCallback This, class GoogleAnalytics.iOS.TAGContainer container, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerCallback" RefType="this" />
+          <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+          <Parameter Name="refreshType" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshType" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="container">To be added.</param>
+          <param name="refreshType">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGContainerCallback_Extensions" Member="M:GoogleAnalytics.iOS.TAGContainerCallback_Extensions.RefreshBegin(GoogleAnalytics.iOS.ITAGContainerCallback,GoogleAnalytics.iOS.TAGContainer,GoogleAnalytics.iOS.TAGContainerCallbackRefreshType)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGContainerCallback" />
+      </Targets>
+      <Member MemberName="RefreshFailure">
+        <MemberSignature Language="C#" Value="public static void RefreshFailure (this GoogleAnalytics.iOS.ITAGContainerCallback This, GoogleAnalytics.iOS.TAGContainer container, GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure failure, GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RefreshFailure(class GoogleAnalytics.iOS.ITAGContainerCallback This, class GoogleAnalytics.iOS.TAGContainer container, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure failure, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerCallback" RefType="this" />
+          <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+          <Parameter Name="failure" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure" />
+          <Parameter Name="refreshType" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshType" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="container">To be added.</param>
+          <param name="failure">To be added.</param>
+          <param name="refreshType">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGContainerCallback_Extensions" Member="M:GoogleAnalytics.iOS.TAGContainerCallback_Extensions.RefreshFailure(GoogleAnalytics.iOS.ITAGContainerCallback,GoogleAnalytics.iOS.TAGContainer,GoogleAnalytics.iOS.TAGContainerCallbackRefreshFailure,GoogleAnalytics.iOS.TAGContainerCallbackRefreshType)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGContainerCallback" />
+      </Targets>
+      <Member MemberName="RefreshSuccess">
+        <MemberSignature Language="C#" Value="public static void RefreshSuccess (this GoogleAnalytics.iOS.ITAGContainerCallback This, GoogleAnalytics.iOS.TAGContainer container, GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RefreshSuccess(class GoogleAnalytics.iOS.ITAGContainerCallback This, class GoogleAnalytics.iOS.TAGContainer container, valuetype GoogleAnalytics.iOS.TAGContainerCallbackRefreshType refreshType) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerCallback" RefType="this" />
+          <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+          <Parameter Name="refreshType" Type="GoogleAnalytics.iOS.TAGContainerCallbackRefreshType" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="container">To be added.</param>
+          <param name="refreshType">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGContainerCallback_Extensions" Member="M:GoogleAnalytics.iOS.TAGContainerCallback_Extensions.RefreshSuccess(GoogleAnalytics.iOS.ITAGContainerCallback,GoogleAnalytics.iOS.TAGContainer,GoogleAnalytics.iOS.TAGContainerCallbackRefreshType)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGContainerFuture" />
+      </Targets>
+      <Member MemberName="Get">
+        <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.TAGContainer Get (this GoogleAnalytics.iOS.ITAGContainerFuture This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.TAGContainer Get(class GoogleAnalytics.iOS.ITAGContainerFuture This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>GoogleAnalytics.iOS.TAGContainer</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerFuture" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGContainerFuture_Extensions" Member="M:GoogleAnalytics.iOS.TAGContainerFuture_Extensions.Get(GoogleAnalytics.iOS.ITAGContainerFuture)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGContainerFuture" />
+      </Targets>
+      <Member MemberName="IsDone">
+        <MemberSignature Language="C#" Value="public static bool IsDone (this GoogleAnalytics.iOS.ITAGContainerFuture This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsDone(class GoogleAnalytics.iOS.ITAGContainerFuture This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerFuture" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGContainerFuture_Extensions" Member="M:GoogleAnalytics.iOS.TAGContainerFuture_Extensions.IsDone(GoogleAnalytics.iOS.ITAGContainerFuture)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGContainerOpenerNotifier" />
+      </Targets>
+      <Member MemberName="ContainerAvailable">
+        <MemberSignature Language="C#" Value="public static void ContainerAvailable (this GoogleAnalytics.iOS.ITAGContainerOpenerNotifier This, GoogleAnalytics.iOS.TAGContainer container);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ContainerAvailable(class GoogleAnalytics.iOS.ITAGContainerOpenerNotifier This, class GoogleAnalytics.iOS.TAGContainer container) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGContainerOpenerNotifier" RefType="this" />
+          <Parameter Name="container" Type="GoogleAnalytics.iOS.TAGContainer" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="container">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGContainerOpenerNotifier_Extensions" Member="M:GoogleAnalytics.iOS.TAGContainerOpenerNotifier_Extensions.ContainerAvailable(GoogleAnalytics.iOS.ITAGContainerOpenerNotifier,GoogleAnalytics.iOS.TAGContainer)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGFunctionCallMacroHandler" />
+      </Targets>
+      <Member MemberName="ValueForMacro">
+        <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSObject ValueForMacro (this GoogleAnalytics.iOS.ITAGFunctionCallMacroHandler This, string macroName, MonoTouch.Foundation.NSDictionary parameters);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.Foundation.NSObject ValueForMacro(class GoogleAnalytics.iOS.ITAGFunctionCallMacroHandler This, string macroName, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGFunctionCallMacroHandler" RefType="this" />
+          <Parameter Name="macroName" Type="System.String" />
+          <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="macroName">To be added.</param>
+          <param name="parameters">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGFunctionCallMacroHandler_Extensions" Member="M:GoogleAnalytics.iOS.TAGFunctionCallMacroHandler_Extensions.ValueForMacro(GoogleAnalytics.iOS.ITAGFunctionCallMacroHandler,System.String,MonoTouch.Foundation.NSDictionary)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.ITAGFunctionCallTagHandler" />
+      </Targets>
+      <Member MemberName="Execute">
+        <MemberSignature Language="C#" Value="public static void Execute (this GoogleAnalytics.iOS.ITAGFunctionCallTagHandler This, string tagName, MonoTouch.Foundation.NSDictionary parameters);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Execute(class GoogleAnalytics.iOS.ITAGFunctionCallTagHandler This, string tagName, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.ITAGFunctionCallTagHandler" RefType="this" />
+          <Parameter Name="tagName" Type="System.String" />
+          <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="tagName">To be added.</param>
+          <param name="parameters">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.TAGFunctionCallTagHandler_Extensions" Member="M:GoogleAnalytics.iOS.TAGFunctionCallTagHandler_Extensions.Execute(GoogleAnalytics.iOS.ITAGFunctionCallTagHandler,System.String,MonoTouch.Foundation.NSDictionary)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>
